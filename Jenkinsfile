@@ -14,13 +14,13 @@ pipeline {
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'git-key', url: 'https://github.com/nusairc/signup-helm.git']])
             }
         }
-        // stage('Python Build') {
-        //     steps {
-        //         dir('./registration') {
-        //             bat 'python settings.py build'
-        //         }
-        //     }
-        // }
+        stage('Python Build') {
+            steps {
+                dir('./registration') {
+                    bat 'python settings.py build'
+                }
+            }
+        }
         stage('Docker Login and Build') {
             steps {
                 withCredentials([string(credentialsId: 'nusair', variable: 'docker-var')]) {
