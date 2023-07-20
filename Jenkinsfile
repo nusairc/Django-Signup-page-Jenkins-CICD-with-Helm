@@ -25,7 +25,7 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'nusair', variable: 'docker-var')]) {
                     bat 'docker login -u nusair -p %docker-var%'
-                    bat 'docker build -t nusair/signup-image:${env.BUILD_NUMBER} . "
+                    bat "docker build -t nusair/signup-image:${env.BUILD_NUMBER} . "
                     bat "docker push nusair/signup-image:${env.BUILD_NUMBER}"
                     bat 'docker logout'
                 }
