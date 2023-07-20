@@ -34,7 +34,7 @@ pipeline {
         stage('helmChart tag') {
             steps {
                 // bat 'docker logout' // Assuming you have the 'docker' command in your Windows environment
-                sh "sed -i 's|nusair/signup-image:v1|nusair/signup-image:15|g' ./signup-chart/values.yaml"
+                bat "sed -i 's|nusair/signup-image:v1|nusair/signup-image:15|g' ./signup-chart/values.yaml"
             }
         }
 
