@@ -18,7 +18,17 @@ pipeline {
             steps {
                 //bat 'pip install -r ./requirements.txt'
                 dir('./registration'){
-                    bat 'python settings.py build'
+                    bat 'python3 settings.py build'
+                }
+            }
+        }
+        stage('Docker Login and Build') {
+            steps {
+                withCredentials([string(credentialsId: 'nusair', variable: 'docker-var')]) {
+                    bat 'docker login -u nusair -p %docker-var%'
+                    bat 'docker build -t nusair/signup-image:${env.BUILD_NUMBER} .'
+                    bat "docker push nusair/signup-image:${env.BUILD_NUMBER}"
+                    bat 'docker logout'
                 }
             }
         }
