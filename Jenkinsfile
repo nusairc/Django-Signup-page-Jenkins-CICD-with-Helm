@@ -48,13 +48,13 @@ pipeline {
             }
         }
         
-        // stage('helm package ') {
-        //     steps {
-        //         //bat 'helm package registration-helm'
-        //         bat 'C:\\windows-amd64\\helm package E:\\Devops_Projects\\Registration_devops\\registrationproject\\registration-helm'
+        stage('helm package ') {
+            steps {
+                bat 'helm package signup-chart'
+                // bat 'C:\\windows-amd64\\helm package E:\\Devops_Projects\\Registration_devops\\registrationproject\\registration-helm'
 
-        //     }
-        // }
+            }
+        }
         // stage('Logging into AWS ECR & push helm chart to ecr') {
         //     steps {
         //         script {
@@ -69,6 +69,8 @@ pipeline {
         //         }
         //     }
         // }
+
+        
         //  stage('pass buildnumber to another pipeline') {
         //     steps {
         //         build job: 'deploy-pipe', parameters: [string(name: 'build_number', value: "${build_number}")]
