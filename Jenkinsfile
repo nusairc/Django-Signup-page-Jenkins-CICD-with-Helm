@@ -33,12 +33,20 @@ pipeline {
 
         stage('helmChart tag') {
             steps {
-                bat "sed -i 's|nusair/signup-image:v1|nusair/signup-image:${env.BUILD_NUMBER}|g' ./signup-chart/values.yaml"
-                // bat """
-                // powershell.exe -Command "((Get-Content -Path './registration-helm/values.yaml') -replace 'akshaykmanoj/python_registrationimage:v5', 'akshaykmanoj/python_registrationimage:${env.BUILD_NUMBER}') | Set-Content -Path './registration-helm/values.yaml'"
-                // """
+                // bat 'docker logout' // Assuming you have the 'docker' command in your Windows environment
+                sh "sed -i 's|nusair/signup-image:v1|nusair/signup-image:15|g' ./signup-chart/values.yaml"
             }
         }
+
+
+        // stage('helmChart tag') {
+        //     steps {
+        //         bat "sed -i 's|nusair/signup-image:v1|nusair/signup-image:${env.BUILD_NUMBER}|g' ./signup-chart/values.yaml"
+        //         // bat """
+        //         // powershell.exe -Command "((Get-Content -Path './registration-helm/values.yaml') -replace 'akshaykmanoj/python_registrationimage:v5', 'akshaykmanoj/python_registrationimage:${env.BUILD_NUMBER}') | Set-Content -Path './registration-helm/values.yaml'"
+        //         // """
+        //     }
+        // }
         
         // stage('helm package ') {
         //     steps {
