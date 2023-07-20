@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Python Build') {
             steps {
-                dir(./registration){    
+                dir('./registration'){    
                 bat 'python settings.py build'
                 }
             }}
