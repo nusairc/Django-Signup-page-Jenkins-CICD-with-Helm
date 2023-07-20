@@ -17,7 +17,7 @@ pipeline {
         stage('Python Build') {
             steps {
                 dir('./registration'){    
-                 bat 'python3 settings.py build'
+                 bat 'python settings.py build'
                 }
             }}
         stage('Docker Login and Build') {
