@@ -1,13 +1,13 @@
 pipeline {
     agent any
-    environment {
-        build_number = "${env.BUILD_ID}"
-        AWS_ACCOUNT_ID="947437598996"
-        AWS_DEFAULT_REGION="us-east-1"
-        IMAGE_REPO_NAME="signup-chart"
-        //IMAGE_TAG="latest"
-        REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
-    }
+    // environment {
+    //     build_number = "${env.BUILD_ID}"
+    //     AWS_ACCOUNT_ID="947437598996"
+    //     AWS_DEFAULT_REGION="us-east-1"
+    //     IMAGE_REPO_NAME="signup-chart"
+    //     //IMAGE_TAG="latest"
+    //     REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
+    // }
     stages {
         stage('Checkout') {
             steps {
@@ -31,12 +31,7 @@ pipeline {
         //     }
         // }
 
-        // stage('helmChart tag') {
-        //     steps {
-        //         // bat 'docker logout' // Assuming you have the 'docker' command in your Windows environment
-        //         bat "sed -i 's|nusair/signup-image:v1|nusair/signup-image:15|g' ./signup-chart/values.yaml"
-        //     }
-        // }
+    
 
 
         stage('helmChart tag') {
@@ -58,22 +53,22 @@ pipeline {
             }
         }
 
-        stage('Logging into AWS ECR & push helm chart to ECR') {
-            steps {
-                script {
-                    withCredentials([aws(credentialsId: 'aws-key', accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
-                     bat '"C:\\Program Files\\Amazon\\AWSCLIV2\\aws" ecr get-login-password --region us-east-1 | "C:\\Program Files\\windows-amd64\\helm" registry login --username AWS --password-stdin 947437598996.dkr.ecr.us-east-1.amazonaws.com'
-                     bat "\"C:\\Program Files\\windows-amd64\\helm\" push signup-chart-0.1.0.tgz oci://947437598996.dkr.ecr.us-east-1.amazonaws.com"
-                     bat "del signup-chart-0.1.0.tgz"
-                        }
-                }
-            }
-        }
+        // stage('Logging into AWS ECR & push helm chart to ECR') {
+        //     steps {
+        //         script {
+        //             withCredentials([aws(credentialsId: 'aws-key', accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+        //              bat '"C:\\Program Files\\Amazon\\AWSCLIV2\\aws" ecr get-login-password --region us-east-1 | "C:\\Program Files\\windows-amd64\\helm" registry login --username AWS --password-stdin 947437598996.dkr.ecr.us-east-1.amazonaws.com'
+        //              bat "\"C:\\Program Files\\windows-amd64\\helm\" push signup-chart-0.1.0.tgz oci://947437598996.dkr.ecr.us-east-1.amazonaws.com"
+        //              bat "del signup-chart-0.1.0.tgz"
+        //                 }
+        //         }
+        //     }
+        // }
         
-         stage('pass buildnumber to another pipeline') {
-            steps {
-                build job: 'helm2-pipeline', parameters: [string(name: 'build_number', value: "${build_number}")]
-            }
-        }
+        //  stage('pass buildnumber to another pipeline') {
+        //     steps {
+        //         build job: 'helm2-pipeline', parameters: [string(name: 'build_number', value: "${build_number}")]
+        //     }
+        // }
     }
 }
