@@ -50,7 +50,7 @@ pipeline {
         
         stage('helm package ') {
             steps {
-                bat 'wsl /usr/local/bin/helm package signup-chart'
+                bat '/usr/local/bin/helm package signup-chart'
                 // bat 'C:\\windows-amd64\\helm package E:\\Devops_Projects\\Registration_devops\\registrationproject\\registration-helm'
 
             }
