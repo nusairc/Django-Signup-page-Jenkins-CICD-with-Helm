@@ -69,8 +69,6 @@ pipeline {
                 }
             }
         }
-
-
         
          stage('pass buildnumber to another pipeline') {
             steps {
