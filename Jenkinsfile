@@ -75,6 +75,8 @@ pipeline {
         }
 
         
+
+        
         //  stage('pass buildnumber to another pipeline') {
         //     steps {
         //         build job: 'deploy-pipe', parameters: [string(name: 'build_number', value: "${build_number}")]
