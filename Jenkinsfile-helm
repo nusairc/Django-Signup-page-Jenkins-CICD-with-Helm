@@ -25,6 +25,7 @@ stage("Pull from ECR") {
 
 
 
+
         //stage("Deploy to Minikube") {
             //steps {
                 // bat 'helm install registration-helm registration-helm'
