@@ -20,6 +20,7 @@ pipeline {
                  bat 'python settings.py build'
                 }
             }}
+            
         // stage('Docker Login and Build') {
         //     steps {
         //         withCredentials([string(credentialsId: 'nusair', variable: 'docker-var')]) {
