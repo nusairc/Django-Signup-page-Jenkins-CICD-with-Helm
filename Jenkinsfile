@@ -21,25 +21,25 @@ pipeline {
                 }
             }}
 
-        //  stage('Unit Test') {
-        //     steps {
-        //         dir('./app1') {
-        //             bat 'python manage.py test'
-        //         }
-        //     }
-        // }
-
-        stage('Unit Test') {
+       stage('Unit Test') {
             steps {
                 dir('./registration/app1') {
-                    bat 'python manage.py test'
+                    bat 'python ../../manage.py test'  // Go back two levels to the root directory
                 }
             }
         }
 
         // stage('Unit Test') {
         //     steps {
-        //         dir('./registration/app'){ // Navigate to the 'app' directory
+        //         dir('./registration/app1') {
+        //             bat 'python manage.py test'
+        //         }
+        //     }
+        // }
+
+        // stage('Unit Test') {
+        //     steps {
+        //         dir('./registration/app1'){ // Navigate to the 'app' directory
         //             bat 'python test.py'    // Run the test.py file
         //         }
         //     }
