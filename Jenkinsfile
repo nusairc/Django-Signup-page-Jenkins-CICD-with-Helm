@@ -24,26 +24,11 @@ pipeline {
        stage('Unit Test') {
             steps {
                 dir('./registration/app1') {
-                    bat 'python ../../manage.py test'  // Go back two levels to the root directory
+                    bat 'python ../../manage.py test'
                 }
             }
         }
 
-        // stage('Unit Test') {
-        //     steps {
-        //         dir('./registration/app1') {
-        //             bat 'python manage.py test'
-        //         }
-        //     }
-        // }
-
-        // stage('Unit Test') {
-        //     steps {
-        //         dir('./registration/app1'){ // Navigate to the 'app' directory
-        //             bat 'python test.py'    // Run the test.py file
-        //         }
-        //     }
-        // }
             
         stage('Docker Login and Build') {
             steps {
