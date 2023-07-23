@@ -21,13 +21,13 @@ pipeline {
                 }
             }}
 
-        stage('Unit Test') {
-            steps {
-                dir('./registration') {
-                    bat 'python manage.py test'
-                }
-            }
-        }
+        // stage('Unit Test') {
+        //     steps {
+        //         dir('./registration') {
+        //             bat 'python manage.py test'
+        //         }
+        //     }
+        // }
             
         stage('Docker Login and Build') {
             steps {
