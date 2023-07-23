@@ -21,24 +21,24 @@ pipeline {
                 }
             }}
 
-        // stage('Unit Test') {
-        //     steps {
-        //         dir('./registration') {
-        //             bat 'python manage.py test'
-        //         }
-        //     }
-        // }
+        stage('Unit Test') {
+            steps {
+                dir('./registration') {
+                    bat 'python manage.py test'
+                }
+            }
+        }
             
-        // stage('Docker Login and Build') {
-        //     steps {
-        //         withCredentials([string(credentialsId: 'nusair', variable: 'docker-var')]) {
-        //             bat 'docker login -u nusair -p %docker-var%'
-        //             bat "docker build -t nusair/signup-image:${env.BUILD_NUMBER} . "
-        //             bat "docker push nusair/signup-image:${env.BUILD_NUMBER}"
-        //             bat 'docker logout'
-        //         }
-        //     }
-        // }
+        stage('Docker Login and Build') {
+            steps {
+                withCredentials([string(credentialsId: 'nusair', variable: 'docker-var')]) {
+                    bat 'docker login -u nusair -p %docker-var%'
+                    bat "docker build -t nusair/signup-image:${env.BUILD_NUMBER} . "
+                    bat "docker push nusair/signup-image:${env.BUILD_NUMBER}"
+                    bat 'docker logout'
+                }
+            }
+        }
 
 
         stage('helmChart tag') {
