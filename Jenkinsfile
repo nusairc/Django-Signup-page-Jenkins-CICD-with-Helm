@@ -1,13 +1,13 @@
 pipeline {
     agent any
-    environment {
-        build_number = "${env.BUILD_ID}"
-        AWS_ACCOUNT_ID="947437598996"
-        AWS_DEFAULT_REGION="us-east-1"
-        IMAGE_REPO_NAME="signup-chart"
-        IMAGE_TAG="latest"
-        REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
-    }
+    // environment {
+    //     build_number = "${env.BUILD_ID}"
+    //     AWS_ACCOUNT_ID="947437598996"
+    //     AWS_DEFAULT_REGION="us-east-1"
+    //     IMAGE_REPO_NAME="signup-chart"
+    //     IMAGE_TAG="latest"
+    //     REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
+    // }
     stages {
         stage('Checkout') {
             steps {
