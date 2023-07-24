@@ -23,17 +23,11 @@ stage("Pull from ECR") {
 }}
 
 
-stage('Deploy to Minikube') {
-            steps {
-                bat "helm upgrade --install signup-chart ./signup-chart"
-            }
-        }
+//stage("Deploy to Minikube") {
+    //steps {
+        // bat "helm upgrade --install signup-chart ./signup-chart"
+    // }
+//}
 
-        //stage("Deploy to Minikube") {
-            //steps {
-                // bat 'helm install signup-chart'
-               // bat 'C:\\windows-amd64\\helm install signup-chart'
-           // }
-        //}
 }
 }
