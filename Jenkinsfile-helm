@@ -23,8 +23,11 @@ stage("Pull from ECR") {
 }}
 
 
-
-
+stage('Deploy to Minikube') {
+            steps {
+                bat "helm upgrade --install signup-chart ./signup-chart"
+            }
+        }
 
         //stage("Deploy to Minikube") {
             //steps {
