@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: nusair/signup-image
+  repository: add your image repo 
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1"
+  tag: "add your image tag"
 
 imagePullSecrets: []
 nameOverride: ""
