@@ -31,6 +31,7 @@ ccess the Jenkins web interface and install the required plugins:
    - GitHub plugin
    - Docker plugin
    - Kubernetes plugin
+   - AWS plugin
 
 . Configure your GitHub credentials in Jenkins using the Jenkins Credentials Manager.
 
