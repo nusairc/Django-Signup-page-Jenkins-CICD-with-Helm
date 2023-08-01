@@ -36,7 +36,7 @@ pipeline {
 
         stage('helmChart tag') {
             steps {
-                // bat "sed -i 's|nusair/signup-image:v1|nusair/signup-image:${env.BUILD_NUMBER}|g' ./signup-chart/values.yaml"
+                // bat "sed -i 's|docker-image name:v1|docker-image name:${env.BUILD_NUMBER}|g' ./signup-chart/values.yaml"
                 // Here i used command for powershell , modify according tp your OS
                 bat """
                 powershell.exe -Command "((Get-Content -Path './signup-chart/values.yaml') -replace 'image-name-tag', 'image-name:${env.BUILD_NUMBER}') | Set-Content -Path './signup-chart/values.yaml'"
@@ -46,7 +46,7 @@ pipeline {
         
         stage('helm package ') {
             steps {
-                //here i used bat command for windows with direct access from path , modify according to your requirements
+                //here i used bat command for windows with direct access from path in my local machine , modify according to your requirements
                 bat "\"C:\\Program Files\\windows-amd64\\helm\" package E:\\Signup-pro\\registration\\signup-chart"
                 // bat 'wsl /usr/local/bin/helm package signup-chart
                 // bat 'wsl helm package signup-chart'
