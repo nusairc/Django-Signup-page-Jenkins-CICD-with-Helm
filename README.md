@@ -16,15 +16,15 @@ Prerequisites
     Optionally, create an "ingress.yaml" file to define the Kubernetes Ingress resource to expose your application externally.
     Create an "hpa.yaml" file to define the Kubernetes Horizontal Pod Autoscaler resource for your Django application.
 
-  - else Open a terminal or command prompt.
+    else Open a terminal or command prompt.
 
     Navigate to the root directory of your project.
 
     Run the following command to create a Helm Chart for your Python Django application:
 
-helm create helm-chart
+      - helm create helm-chart
 
-Ensure that all the above files are properly configured with the necessary values and specifications for your Django application.
+    Ensure that all the above files are properly configured with the necessary values and specifications for your Django application.
 
 
 ccess the Jenkins web interface and install the required plugins:
@@ -32,11 +32,11 @@ ccess the Jenkins web interface and install the required plugins:
    - Docker plugin
    - Kubernetes plugin
 
-5. Configure your GitHub credentials in Jenkins using the Jenkins Credentials Manager.
+. Configure your GitHub credentials in Jenkins using the Jenkins Credentials Manager.
 
-6. Create two pipeline jobs in Jenkins:
-   - Build: Use the "Jenkinsfile" to build the Docker image, push it to ECR, and package the Helm Chart.
-   - Deploy: Use the "Jenkinsfile-helm" to download the Helm Chart from ECR and deploy it to Minikube.
+. Create two pipeline jobs in Jenkins:
+   - Build: Use the "Jenkinsfile" to build the Docker image, push it to ECR, and package the Helm Chart. -[Integration Pipeline]
+   - Deploy: Use the "Jenkinsfile-helm" to download the Helm Chart from ECR and deploy it to Minikube.[Deploy Pipeline]
 
 ## Helm Chart
 
@@ -71,12 +71,16 @@ Please update the environment variables in both Jenkinsfiles to match your envir
 
 ## Note
 
-- This is a sample project for demonstration purposes. In a production environment, ensure proper security measures and secrets management are in place.
+- This is a sample project for demonstration purposes and learning purpose - it may cause errors as it created for academic purpose project.
+
+-  In a production environment, ensure proper security measures and secrets management are in place.
 
 - Make sure to customize the Helm Chart and Kubernetes configurations according to your application's requirements and environment.
 
 - For production deployments, use a secure and private Docker registry and ECR setup.
 
 - In a real-world scenario, consider setting up Jenkins on a dedicated server or using a CI/CD platform, like GitLab CI or GitHub Actions, for better scalability and manageability.
+
+- In jenkins pipeline script update GITHUB,AWS,DOCKERHUB,k8s credentials accordingly. i have used sample variables,it wont work if you used the script without update
 
 Happy coding and deploying!
