@@ -1,4 +1,5 @@
-#  Setting Up CI/CD for Python Django Application using Helm Charts and Kubernetes -- USE FOR LEARNING/REFERENCE PURPOSE _ DONT CLONE THIS AS IT MAY CAUSE ERROR !
+#  Setting Up CI/CD for Python Django Application using Helm Charts and Kubernetes -- USE FOR LEARNING/REFERENCE PURPOSE _ DONT CLONE THIS AS IT MAY CAUSE ERROR ! 
+
 
 Prerequisites
 
@@ -6,6 +7,7 @@ Prerequisites
     Minikube is installed and configured for local Kubernetes deployment.
     Jenkins is installed and running on your laptop.
     Helm CLI is installed on your system.
+    the django appn is a sample Django Authentication [Login,Signup] Appn developed for academic purpose.
 
     Step 1: Helm Chart Creation
 
