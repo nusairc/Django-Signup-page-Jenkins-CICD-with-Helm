@@ -81,6 +81,6 @@ Please update the environment variables in both Jenkinsfiles to match your envir
 
 - In a real-world scenario, consider setting up Jenkins on a dedicated server or using a CI/CD platform, like GitLab CI or GitHub Actions, for better scalability and manageability.
 
-- In jenkins pipeline script update GITHUB,AWS,DOCKERHUB,k8s credentials accordingly. i have used sample variables,it wont work if you used the script without update
+- In jenkins pipeline script update GITHUB,AWS,DOCKERHUB,k8s credentials accordingly. i have used sample variables,it wont work if you used the script without update. also create environment variables in jenkins interface as required. 
 
 Happy coding and deploying!
