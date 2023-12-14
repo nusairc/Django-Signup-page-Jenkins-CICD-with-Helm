@@ -1,4 +1,4 @@
-#  Setting Up CI/CD for Python Django Application using Helm Charts and Kubernetes -- USE FOR LEARNING/REFERENCE PURPOSE _ DONT CLONE THIS AS IT MAY CAUSE ERROR ! 
+#  Setting Up CI/CD for Python Django Application using Helm Charts and Kubernetes - USE FOR LEARNING/REFERENCE PURPOSE _ DONT CLONE THIS AS IT MAY CAUSE ERROR ! 
 
 
 Prerequisites
